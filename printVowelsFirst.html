@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check console for output</h1>
+    <script>
+        //print the vowels from the given string and then consonants  as a string
+        'use strict'
+        function printLetters(word){
+           var vowels = ['a','e','i','o','u']
+           var charArray=[]
+           for(let letter of word){
+               if(vowels.includes(letter)){
+                   charArray.push(letter)
+               }
+              
+           }
+           for(let letter of word){
+               if(!vowels.includes(letter)){
+                   charArray.push(letter)
+               }
+              
+           }
+           return charArray.join("")
+        }
+   //2nd way
+           //print the vowels from the given string and then consonants, each letter in different line
+
+        function writeLetters(word){
+           var vowels = ['a','e','i','o','u']
+           var charArray=[]
+           for(let letter of word){
+               if(vowels.includes(letter)){
+                   console.log(letter)
+               }
+              
+           }
+           for(let letter of word){
+               if(!vowels.includes(letter)){
+                 console.log(letter)
+               }
+              
+           }
+        }
+        document.write(printLetters('sandeep'))
+        writeLetters('sandeep')
+
+
+    </script>
+</body>
+</html>

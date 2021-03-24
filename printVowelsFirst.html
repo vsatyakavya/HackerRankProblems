@@ -11,6 +11,7 @@
     <script>
         //print the vowels from the given string and then consonants  as a string
         'use strict'
+        //1st way
         function printLetters(word){
            var vowels = ['a','e','i','o','u']
            var charArray=[]
@@ -33,22 +34,21 @@
 
         function writeLetters(word){
            var vowels = ['a','e','i','o','u']
-           var charArray=[]
+           var cons =[]
            for(let letter of word){
                if(vowels.includes(letter)){
                    console.log(letter)
                }
-              
-           }
-           for(let letter of word){
-               if(!vowels.includes(letter)){
-                 console.log(letter)
+               else{
+                    cons.push(letter)
                }
               
            }
+           cons.map(c => console.log(c))
+          
         }
         document.write(printLetters('sandeep'))
-        writeLetters('sandeep')
+        writeLetters('star')
 
 //3rd way
 function vowelsAndConsonants(word){
@@ -68,6 +68,26 @@ function vowelsAndConsonants(word){
 
         console.log("*********")
         vowelsAndConsonants('kavya')
+
+        //4th way
+        function vowelConsonants(word){
+            var vowels =[];
+            var consonants =[];
+            //word.split("") or spread operator
+            [...word].map(char => {
+                if('aeiou'.includes(char)){
+                    vowels.push(char)
+                }
+                else{
+                    consonants.push(char)
+                }
+            }
+            );
+            vowels.map(v =>console.log(v));
+            consonants.map(c =>console.log(c))
+        }
+        console.log("****************")
+        vowelConsonants("jamithireddy")
 
     </script>
 </body>

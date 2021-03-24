@@ -50,6 +50,24 @@
         document.write(printLetters('sandeep'))
         writeLetters('sandeep')
 
+//3rd way
+function vowelsAndConsonants(word){
+    var vowels='aeiou';
+    var consonants = "";
+    for(var letter of word){
+        if(vowels.includes(letter)){
+            console.log(letter)
+        }
+        else{
+            consonants+= letter +"\n"
+        }
+    }
+    console.log(consonants)
+    
+}
+
+        console.log("*********")
+        vowelsAndConsonants('kavya')
 
     </script>
 </body>

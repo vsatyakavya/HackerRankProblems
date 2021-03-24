@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check console for the output</h1>
+    <script>
+        'use strict'
+        //1st way using loops
+        function arraySort(nums){
+             var first = nums[0];
+             var second = -1;
+             for(var i=1;i<nums.length;i++){
+                 if(nums[i]>first){
+                     second = first;
+                     first = nums[i];
+                 }
+                 if(nums[i]>second && nums[i]<first){
+                     second = nums[i]
+                 }
+             }
+          return second;
+        }
+        
+        //2nd way using set,splice,Math.max
+        function sortNum(nums){
+            nums = [...new Set(nums)]
+            console.log(nums);
+
+            nums.splice(nums.indexOf(Math.max(...nums)),1);
+            console.log(nums)
+            return (Math.max(...nums))
+
+        }
+        console.log(arraySort([2,3,6,5,4]))
+        console.log("*******************")
+
+        console.log(sortNum([2,3,6,5,6]))
+
+    </script>
+</body>
+</html>

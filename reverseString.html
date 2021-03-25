@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+  function reverseString(word){
+      try{
+          //return a reversed string if input is string otherwise throw error
+          //try catch finally
+          //input satya kavya --output ayvak aytas
+      word = word.split("").reverse().join("")
+
+      }
+      catch(Exception){
+         console.log(Exception.name + ": "+ Exception.message)
+      }
+      finally{
+      console.log(word)
+      }
+  }
+
+  reverseString("satya kavya")
+  console.log("****************")
+
+
+  //return a reversed words of a input string
+  //input satya kavya -- output kavya satya
+
+  function reverseWords(words){
+      words = words.split(" ").reverse().join(" ");
+      console.log(words)
+  }
+
+  reverseWords("satya kavya")
+
+
+  //return a reversed letters with reversed words of input string
+  //input satya kavya -- output atyas ayvak
+  function reverse(words){
+      console.log
+      ("oooooooooooooooooooooo")
+     //reversed the words
+
+     words = words.split(" ").reverse().join(" ");
+      console.log(words)
+      //reversed letter of the words
+      words = words.split("").reverse().join("");
+      
+      console.log(words)
+  }
+  reverse("satya kavya")
+
+
+    </script>
+</body>
+</html>

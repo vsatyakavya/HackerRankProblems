@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+   function gridClimbing(grid){
+       if(grid.length <=0){
+           return 0;
+       }
+       var rows = grid.length;
+       var cols = grid[0].length;
+       var nodes = [];
+       var temp = 0;
+       for(var i=0;i < rows;i++){
+           for(var j=0; j < cols ; j++){
+               if(grid[i][j] == 1){
+                   temp++;
+               }
+              
+           }
+           nodes.push(temp);
+               temp =0;
+       }
+        var connections = 0;
+       var current =0
+       var prev = nodes[0];
+       console.log("previous"+ prev)
+       for(var i=1;i<nodes.length ; i++){
+           if(nodes[i] != 0){
+               current = nodes[i];
+               connections += prev * current;
+               prev = current;
+
+           }
+       }
+    return connections
+
+   }
+
+ 
+
+
+        
+        var grid =[
+            [1,0,1,1],
+            [0,1,1,0],
+            [0,0,0,0],
+            [1,0,0,0]
+        ]
+
+        console.log(gridClimbing(grid))
+    </script>
+</body>
+</html>

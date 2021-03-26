@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        function getDayName(dateString) {
+            console.log(dateString)
+            
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    
+    let dayName;
+    dayName = dayNames[new Date(dateString).getDay()]
+    console.log(new Date(dateString).getDay())
+    // Write your code here
+    // switch(new Date(dateString).getDay())
+    // {
+    //     case 0: dayName = "Sunday";
+    //     break;
+    //     case 1 : dayName = "Monday";
+    //     break;
+    //     case 2: dayName="Tuesday";
+    //     break;
+    //     case 3: dayName="Wednesday";
+    //     break;
+    //     case 4 : dayName ="Thursday";
+    //     break;
+    //     case 5: dayName ="Friday";
+    //     break;
+    //     case 6: dayName ="Saturday";
+    //     break;
+        
+    // }
+    // console.log(new Date( ).toString().slice(0, 3))
+     return dayName;
+}
+
+var dates =["10/11/2009", "11/10/2010"]
+console.log(getDayName("11/10/2010"))
+
+    </script>
+</body>
+</html>

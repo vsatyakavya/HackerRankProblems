@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        //finding duplicate characters in a string using hash map which is o(n) complexity
+        function findDuplicates(word){
+            const arr = word.split("");
+            const hash = new Map();
+            var result = [];
+            // If repeat the value is false, if no repeat the value is true
+            for(let i=0;i<arr.length;i++){
+                if(hash.get(arr[i]) === undefined){
+                    hash.set(arr[i], true);
+                }
+                else{
+                    const value = hash.get(arr[i]);
+                    if(value){
+                        hash.set(arr[i], !value)
+                    }
+                }
+            }
+            
+
+         hash.forEach((v , k) => {
+             if(!v){
+                 result.push(k)
+             }
+         })
+        
+          return result;
+        }
+
+        function duplicateCharacters(word){
+            const result = [];
+            const str1 = word.toLowerCase().split("").sort().join("")
+             console.log(str1);
+             const str = str1.match(/(.)\1+/g)
+             console.log(str)
+            if(str !== null){
+                str.forEach((elem)=>{
+                    result.push(elem[0])
+                });
+            }
+            return result;
+
+        }
+
+        console.log(findDuplicates("satyakavyas"))
+        console.log(duplicateCharacters("satyakavyas"))
+    </script>
+</body>
+</html>

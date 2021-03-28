@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+      function findCharacters(word){
+        //   var a =word.indexOf('r',5);
+        //   var b = word.lastIndexOf('p');
+        //   console.log("a" +a);
+        //   console.log("b"+ b)
+        //   var result = (b-1)-a
+        var temp = (word.match(/p/g) || []).length;
+          return temp
+      }
+
+
+        var word ="programmerXXXprogrammer"
+        console.log(findCharacters(word))
+    </script>
+</body>
+</html>

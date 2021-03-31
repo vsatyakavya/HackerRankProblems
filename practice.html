@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use script'
+        function duplicates(word) {
+            const arr = word.split("");
+            const result = [];
+            const hash = new Map();
+            for (let i = 0; i < arr.length; i++) {
+                if (hash.get(arr[i]) === undefined) {
+                    hash.set(arr[i], true)
+                }
+                else {
+                    const value = hash.get(arr[i]);
+                    if (value) {
+                        hash.set(arr[i], !value)
+                    }
+                }
+            }
+           hash.forEach((v, k) =>{
+               if(!v){
+                   result.push(k)
+               }
+           })
+           return result;
+        }
+
+        function duplicateCharacters(word){
+              const result = [];
+              const str = word.toLowerCase().split("").sort().join("").match(/(.)\1+/g)
+              if(str !==null){
+                  str.forEach((element)=>{
+                      result.push(element[0])
+                  })
+              }
+               return result
+        }
+        console.log(duplicates("satyakavyas"))
+        console.log(duplicateCharacters("satyakavyas"))
+    </script>
+</body>
+
+</html>

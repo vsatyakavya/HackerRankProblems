@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use script'
+
+        function anagrams(word1,word2){
+            if(word1.length !== word2.length){
+                return "NOT ANAGRAMS"
+            }
+            const arr1 = word1.toLowerCase().split("");
+            const arr2 = word2.toLowerCase().split("")
+            var ind;
+            for(let i=0;i<arr1.length;){
+                if(arr2.includes(arr1[i])){
+                   ind = arr2.indexOf(arr1[i]) 
+                   arr1.shift( );
+                   arr2.splice(ind , 1)
+                
+
+                }
+                else{
+                    return "Not Anagrams"
+                }
+            }
+
+            
+            return "Anagrams"
+        }
+
+
+        function sortAnagrams(word1,word2){
+            if(word1.length !== word2.length){
+                return "Length is different"
+            }
+            const arr1 = word1.toLowerCase().split("").sort().join("");
+            const arr2 = word2.toLowerCase().split("").sort().join("");
+            return (arr1 === arr2 ? word1 + " ,"+ word2+ " are anagrams ": word1 + " ,"+ word2+ " are not  anagrams ")
+
+            
+
+        }
+        console.log("sort Anagrams : " +sortAnagrams("krishe", "Shrika"))
+        console.log(anagrams("Riksha","krisha"))
+    </script>
+</body>
+</html>

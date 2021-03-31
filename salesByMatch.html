@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        //one way
+        //finding the number of pairs of socks in ana array using hashmap
+        function salesByMatch(ar) {
+            const hash = new Map();
+            for (const num of ar) {
+                if (hash.get(num) !== undefined) {
+                    const value = hash.get(num)
+                    hash.set(num, value + 1)
+                }
+                else {
+                    hash.set(num, 1)
+                }
+
+            }
+            let total = 0;
+            let div;
+            let check;
+
+            hash.forEach((v, k) => {
+                if (v % 2 == 0) {
+                    div = v / 2;
+                    total += div;
+                }
+                else {
+                    check = 0;
+                    while (v > 1) {
+                        v = v - 2;
+                        check++;
+                    }
+                    total += check
+
+                }
+
+
+
+            })
+
+            return total;
+        }
+
+        //second way using set
+        function pairsOfSocks(n , ar) {
+            const set1 = new Set();
+            let pair = 0;
+            for (let i = 0; i <= n; i++) {
+                if (!set1.has(ar[i])) {
+                    set1.add(ar[i])
+                }
+                else {
+                    pair++;
+                    set1.delete(ar[i])
+                }
+            }
+            return pair;
+        }
+
+
+        console.log(salesByMatch([10, 20, 20, 10, 10, 30, 50, 10, 20, 10, 10, 50]))
+        console.log(pairsOfSocks(11, [10, 20, 20, 10, 10, 30, 50, 10, 20, 10, 10, 50]))
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        
+      function insertNodeAtLast(head,data){
+          let newNode = new SinglyLinkedListNode(data);
+          if(!head){
+              head = newNode;
+              return head;
+          }
+          let current = head;
+          while(current.next){
+              current = current.next;
+
+          }
+          current.next = newNode;
+          return head;
+      }
+
+
+      function insertNodeAtFirst(head,data){
+          let newNode = new SinglyLinkedListNode(data);
+          if(!head){
+              head = newNode;
+              return node;
+          }
+          newNode.next = head;
+          head = newNode;
+          return head;
+      }
+
+
+      function insertNodeAtRandomPosition(head, data, position){
+              let newNode = new SinglyLinkedListNode(data);
+              if(!head || position === 0){
+                  head = newNode;
+                  return head;
+              }
+              
+              let previous = head;
+              let i = 1;
+              while(previous){
+                  if(i === position){
+                      newNode.next = previous.next;
+                      previous.next = newNode;
+                      return head;
+                  }
+                  previous = previous.next;
+                  i++;
+              }
+
+      }
+
+
+      function deleteBeginningNode(){
+          if(!head){
+              return ;
+          }
+          this.head = this.head.next;
+          return head;
+
+      }
+
+
+
+      function deleteLastNode(){
+          if(!head){
+              return ;
+          }
+          let previous = head;
+          let tail = head.next;
+          while(tail.next){
+               previous = tail;
+               tail = tail.next;
+          }
+          previous.next = null;
+          return head;
+      }
+
+      
+    </script>
+</body>
+</html>

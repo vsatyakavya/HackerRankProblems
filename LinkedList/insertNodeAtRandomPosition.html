@@ -27,6 +27,9 @@
       }
 
 
+   
+
+
       function insertNodeAtFirst(head,data){
           let newNode = new SinglyLinkedListNode(data);
           if(!head){
@@ -37,6 +40,7 @@
           head = newNode;
           return head;
       }
+
 
 
       function insertNodeAtRandomPosition(head, data, position){
@@ -60,8 +64,10 @@
 
       }
 
+     
 
-      function deleteBeginningNode(){
+
+      function deleteBeginningNode(head){
           if(!head){
               return ;
           }
@@ -72,7 +78,7 @@
 
 
 
-      function deleteLastNode(){
+      function deleteLastNode(head){
           if(!head){
               return ;
           }
@@ -86,6 +92,32 @@
           return head;
       }
 
+
+      function deleteAtRandomPosition(head, position){
+             if(!head){
+                 return ;
+             }
+             if(position === 0){
+                 head = head.next;
+             }
+             let previous = head;
+             let i = 1;
+             while(previous){
+                 if(i === position){
+                     previous.next = previous.next.next;
+                     return head;
+
+                 }
+                 previous = previous.next;
+                 i++;
+             }
+
+      }
+
+
+      function deleteSinglyLinedList(head){
+             this.head = null;
+      }
       
     </script>
 </body>

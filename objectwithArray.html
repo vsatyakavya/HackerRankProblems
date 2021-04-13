@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        var obj ={};
+        obj['a'] = "hello";
+        obj['b'] = ["satya"]
+        obj.b.push("kavya")
+        obj.c = {name : "sandeep" ,age : 31 }
+        obj.fun = function( ){
+               return  this.b ;
+            
+            
+        }
+       //calling object function
+        console.log(obj.fun())
+
+        //printing all object keys
+        console.log(Object.keys(obj))
+
+        //printing all object values
+        console.log(Object.values(obj))
+            
+        //pushing values to array in object
+         obj.b.push("varri")
+
+         // to get the value at an index property value; [1] index is b: ["satya" , "kavya"]
+        console.log([Object.values(obj)][0][1])
+        console.log([Object.values(obj)][0][1][2]) // returns obj1.b.2nd index which is varri
+
+    
+
+         // to get the paricular index property key  0/p 0 means a : hello ; returns a
+        console.log([Object.keys(obj)][0][0])
+      
+
+        //assigning new property to obj1 property c object
+        obj.c.city = "Austin";
+
+        console.log([Object.values(obj)][0][2])
+       // (or)
+        console.log(obj.c)
+
+
+
+        //this is another way
+
+         console.log(obj[Object.keys(obj)[1]])
+         console.log(obj['b'])
+
+
+         //
+         console.log(obj)
+
+         //itereate through object using Object.entries
+         //but the order is not guaranteed
+         // for now c object returns as c:[object object]
+
+
+         //using for of
+         for(const [key ,value] of Object.entries(obj)){
+
+             // for now c object returns as c:[object object]
+            //  console.log(`${key} : ${value}`);
+
+            //returns object  c  values also 
+            console.log(key , value)
+         }
+
+         //returns all the properties with values of obj as  [ ["a" ,"hello"], ["b",["satya","kavya","varri"] ] ,........]
+         console.log(Object.entries(obj))
+
+         //iterate through obj  using for in
+         for(const property in obj){
+             //returns only property names
+             console.log(property)
+
+             //returns property and values
+             console.log(property , obj[property])
+             //another way
+             //in this case ibject in object values doesn't work, returns c :[object Object]
+             console.log(`${property} : ${obj[property]}`);
+
+
+         }
+    </script>;
+</body>
+</html>

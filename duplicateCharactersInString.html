@@ -20,10 +20,10 @@
                     hash.set(arr[i], true);
                 }
                 else{
-                    const value = hash.get(arr[i]);
-                    if(value){
-                        hash.set(arr[i], !value)
-                    }
+                   // const value = hash.get(arr[i]);
+                   // if(value){
+                        hash.set(arr[i], false)
+                   // }
                 }
             }
             
@@ -37,23 +37,110 @@
           return result;
         }
 
-        function duplicateCharacters(word){
-            const result = [];
-            const str1 = word.toLowerCase().split("").sort().join("")
-             console.log(str1);
-             const str = str1.match(/(.)\1+/g)
-             console.log(str)
-            if(str !== null){
-                str.forEach((elem)=>{
-                    result.push(elem[0])
-                });
+        
+//find number of duplicates in a string
+        function findNumberOfDuplicates(word){
+            const arr = word.split("");
+            const hash = new Map();
+            var result = [];
+            for(let i =0; i< arr.length;i++){
+                if(hash.get(arr[i]) === undefined){
+                    hash.set(arr[i], 1)
+                }else{
+                    const value = hash.get(arr[i]);
+                    
+                    hash.set(arr[i],value+1);
+                    
+                }
             }
-            return result;
 
+            hash.forEach((v,k)=>{
+                if(v > 1){
+                  result.push(k,v)
+                }
+            });
+
+            return result;
         }
 
-        console.log(findDuplicates("satyakavyas"))
-        console.log(duplicateCharacters("satyakavyas"))
+
+        //find uniqueLetters in a string
+        
+        function findUniqueLetters(word){
+            const arr = word.split("");
+            const hash = new Map();
+            var result = [];
+            // If repeat the value is false, if no repeat the value is true
+            for(let i=0;i<arr.length;i++){
+                if(hash.get(arr[i]) === undefined){
+                    hash.set(arr[i], true);
+                }
+                else{
+                   // const value = hash.get(arr[i]);
+                   // if(value){
+                        hash.set(arr[i], false)
+                   // }
+                }
+            }
+            
+
+         hash.forEach((v , k) => {
+             if(v){
+                 result.push(k)
+             }
+         })
+        
+          return result;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // function duplicateCharacters(word){
+        //     const result = [];
+        //     const str1 = word.toLowerCase().split("").sort().join("")
+        //      console.log(str1);
+        //      const str = str1.match(/(.)\1+/g)
+        //      console.log(str)
+        //     if(str !== null){
+        //         str.forEach((elem)=>{
+        //             result.push(elem[0])
+        //         });
+        //     }
+        //     return result;
+
+        // }
+
+        console.log(findDuplicates("satyakavyas"));
+        console.log(findNumberOfDuplicates("satyakavyas"))
+        console.log(findUniqueLetters("satyakavyas"))
+
+       // console.log(duplicateCharacters("satyakavyas"))
     </script>
 </body>
 </html>

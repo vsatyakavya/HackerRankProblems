@@ -10,28 +10,55 @@
     <script>
         'use script'
 
-        function anagrams(word1,word2){
-            if(word1.length !== word2.length){
-                return "NOT ANAGRAMS"
-            }
-            const arr1 = word1.toLowerCase().split("");
-            const arr2 = word2.toLowerCase().split("")
-            var ind;
-            for(let i=0;i<arr1.length;){
-                if(arr2.includes(arr1[i])){
-                   ind = arr2.indexOf(arr1[i]) 
-                   arr1.shift( );
-                   arr2.splice(ind , 1)
+        // function anagrams(word1,word2){
+        //     if(word1.length !== word2.length){
+        //         return "NOT ANAGRAMS"
+        //     }
+        //     const arr1 = word1.toLowerCase().split("");
+        //     const arr2 = word2.toLowerCase().split("")
+        //     var ind;
+        //     for(let i=0;i<arr1.length;){
+        //         if(arr2.includes(arr1[i])){
+        //            ind = arr2.indexOf(arr1[i]) 
+        //            arr1.shift( );
+        //            arr2.splice(ind , 1)
                 
 
-                }
-                else{
-                    return "Not Anagrams"
-                }
-            }
+        //         }
+        //         else{
+        //             return "Not Anagrams"
+        //         }
+        //     }
 
             
-            return "Anagrams"
+        //     return "Anagrams"
+        // }
+
+        function anagrams(stringA , stringB){
+             /*First, we remove any non-alphabet character using regex and convert       
+        convert the strings to lowercase. */
+            //  stringA = stringA.replace(/[^\w]/g,'').toLowerCase();
+            stringA = stringA.replace(/[^a-zA-z]/g,'').toLowerCase();
+
+             stringB = stringB.replace(/[^a-zA-z]/g,'').toLowerCase();
+
+             if(stringA.length !== stringB.length){
+             return false;
+             }
+
+             let arrB = stringB.split("");
+
+             for(const char of stringA){
+                 if(!arrB.includes(char)){
+                     return false
+                     break;
+                 }
+                 else{
+                     arrB.splice(arrB.indexOf(char), 1)
+                 }
+             }
+             return true;
+ 
         }
 
 
@@ -47,7 +74,9 @@
 
         }
         console.log("sort Anagrams : " +sortAnagrams("krishe", "Shrika"))
-        console.log(anagrams("Riksha","krisha"))
+        console.log(anagrams("S67hr6i#ka","kr@i5sha")) //true because of eliminating other than alphabetic characters  using regex
+        console.log(anagrams("Shrika","krisha")) //true
+
     </script>
 </body>
 </html>

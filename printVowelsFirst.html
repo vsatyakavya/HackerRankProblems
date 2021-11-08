@@ -89,6 +89,21 @@ function vowelsAndConsonants(word){
         console.log("****************")
         vowelConsonants("jamithireddy")
 
+
+        function findVowels(word){
+            const vowels =['a','e','i','o','u']
+            const vowelsList = [];
+
+            for(const letter of word){
+                if(vowels.includes(letter)){
+                 vowelsList.push(letter);
+                }
+            }
+            return vowelsList;
+        }
+        document.write("<br>")
+        document.write("vowelsList :   ".concat(findVowels("satyavarri")))
+
     </script>
 </body>
 </html>
